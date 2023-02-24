@@ -3,7 +3,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TodoList {
-    private ArrayList<String> items;
+    private ArrayList < String > items;
     private Scanner scanner;
 
     private static final int ADD_ITEM_OPTION = 1;
@@ -12,7 +12,7 @@ public class TodoList {
     private static final int EXIT_OPTION = 4;
 
     public TodoList() {
-        items = new ArrayList<String>();
+        items = new ArrayList < String > ();
         scanner = new Scanner(System.in);
     }
 
@@ -65,7 +65,7 @@ public class TodoList {
             }
         }
     }
-    
+
 
     private void addItem() {
         System.out.println("Enter the item you want to add:");
@@ -74,7 +74,7 @@ public class TodoList {
             System.out.println("Error: Item description cannot be empty.");
             return;
         }
-    
+
         String priorityLevel = "";
         while (!priorityLevel.equals("low") && !priorityLevel.equals("medium") && !priorityLevel.equals("high")) {
             System.out.println("Enter the priority level of the item (low, medium, or high):");
@@ -83,7 +83,7 @@ public class TodoList {
                 System.out.println("Error: Invalid priority level.");
             }
         }
-    
+
         String dueDate = "";
         while (!dueDate.matches("\\d{4}-\\d{2}-\\d{2}")) {
             System.out.println("Enter the due date of the item (YYYY-MM-DD format):");
@@ -92,12 +92,12 @@ public class TodoList {
                 System.out.println("Error: Invalid due date format.");
             }
         }
-    
+
         String item = dueDate + " - " + priorityLevel + ": " + itemDescription;
         items.add(item);
         System.out.println("Item added successfully.");
     }
-    
+
     private int readIntInput() {
         int choice;
         try {
@@ -116,7 +116,7 @@ public class TodoList {
             System.out.println("Your to-do list is empty.");
             return;
         }
-    
+
         System.out.println("Enter the index of the item you want to remove:");
         int index;
         try {
@@ -127,12 +127,12 @@ public class TodoList {
             scanner.nextLine(); // consume the invalid input
             return;
         }
-    
+
         if (index < 1 || index > items.size()) {
             System.out.println("Invalid index. Please enter a valid index:");
             return;
         }
-    
+
         String removedItem = items.remove(index - 1);
         System.out.println("Item '" + removedItem + "' removed successfully.");
     }
